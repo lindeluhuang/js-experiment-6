@@ -10,7 +10,7 @@ body,html {
 
 body {
     font-family: 'Zilla Slab', serif;
-    font-size: 30px;
+    font-size: 24px;
     font-weight: 400;
     line-height: 1.25;
 
@@ -19,21 +19,14 @@ body {
 
     max-width: 1120px;
     margin: 240px auto 240px auto;
+    padding: 0 60px;
 }
 
-header img {
-    width: 180px;
-    height: auto;
-}
+@media (max-width: 800px) {
+    body {
+        padding: 0 20px;
+    }
 
-section img {
-    width: 500px;
-    height: auto;
-}
-
-h2 {
-    font-size: 36px;
-    font-weight: 600;
 }
 
 
@@ -50,6 +43,11 @@ header {
     height: 64px;
 }
 
+header img {
+    width: 160px;
+    height: auto;
+}
+
 
 /* ---------- Each Section ---------- */
 section {
@@ -60,11 +58,60 @@ section {
     align-items: center;
 }
 
-section.div {
+section:nth-child(odd) {
+    flex-direction: row-reverse;
+}
+
+section:nth-child(odd) div {
+    padding-right: 60px;
+}
+
+section:nth-child(even) div {
+    padding-left: 60px;
+}
+
+@media (max-width: 800px) {
+    section {
+        flex-direction: column;
+    }
+
+    section:nth-child(odd) {
+        flex-direction: column;
+    }
+
+    section:nth-child(odd) div {
+        padding-right: 0px;
+    }
+    
+    section:nth-child(even) div {
+        padding-left: 0px;
+    }
 
 }
 
 section div {
-    max-width: 500px;
+    max-width: 660px;
+    position: relative;
 }
 
+section img {
+    width: calc(50vw - 60px);
+    max-width: 500px;
+    height: auto;
+    position: relative;
+}
+
+@media (max-width: 800px) {
+    section img {
+        width: 80vw;
+    }
+}
+
+h2 {
+    font-size: 36px;
+    font-weight: 600;
+}
+
+section.s2 {
+    color: #ffffff;
+}
